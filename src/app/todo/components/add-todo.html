@@ -1,0 +1,13 @@
+<div class="container">
+    <form *ngIf="active" (ngSubmit)="onSubmit()" #todoForm="ngForm">
+      <div class="form-group">
+        <label for="name">Title</label>
+        <input [(ngModel)]="todo.title" type="text" class="form-control" 
+            required ngControl="title" #title="ngForm">
+        <div [hidden]="title.valid || title.pristine" class="alert alert-danger">
+          Title is required
+        </div>
+      </div>
+      <button type="submit" [disabled]="!todoForm.form.valid">Create</button>
+    </form>
+</div>

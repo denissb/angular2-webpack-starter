@@ -4,8 +4,15 @@
 import {Component} from 'angular2/core';
 import {RouteConfig, Router} from 'angular2/router';
 
-import {Home} from './home';
+import {Todo} from './todo';
 import {AppState} from './app.service';
+
+/*
+* Angular-material components
+*/
+
+import {MdToolbar} from '@angular2-material/toolbar';
+import {MdCard} from '@angular2-material/card';
 
 /*
  * App Component
@@ -15,64 +22,25 @@ import {AppState} from './app.service';
   selector: 'app',
   pipes: [ ],
   providers: [ ],
-  directives: [ ],
-  styles: [`
-    nav ul {
-      display: inline;
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-      width: 60px;
-    }
-    nav li {
-      display: inline;
-    }
-    nav li.active {
-      background-color: lightgray;
-    }
-  `],
+  directives: [MdToolbar, MdCard],
+  styles: [ ],
   template: `
-    <header>
-      <nav>
-        <h1>Hello {{ name }}</h1>
-        <ul>
-          <li router-active>
-            <a [routerLink]=" ['Index'] ">Index</a>
-          </li>
-          <li router-active>
-            <a [routerLink]=" ['Home'] ">Home</a>
-          </li>
-          <li router-active>
-            <a [routerLink]=" ['About'] ">About</a>
-          </li>
-        </ul>
-      </nav>
-    </header>
+    <md-toolbar color="primary">
+      <span>{{name}}</span>
+    </md-toolbar>
 
     <main>
-      <router-outlet></router-outlet>
+      <md-card>
+        <router-outlet></router-outlet>
+      </md-card>
     </main>
-
-    <footer>
-      WebPack Angular 2 Starter by <a [href]="url">@AngularClass</a>
-      <div>
-        <img [src]="angularclassLogo" width="10%">
-      </div>
-    </footer>
-
-    <pre>this.state = {{ state | json }}</pre>
   `
 })
 @RouteConfig([
-  { path: '/',      name: 'Index', component: Home, useAsDefault: true },
-  { path: '/home',  name: 'Home',  component: Home },
-  // Async load a component using Webpack's require with es6-promise-loader and webpack `require`
-  { path: '/about', name: 'About', loader: () => require('es6-promise!./about')('About') },
+  { path: '/', name: 'Todo', component: Todo, useAsDefault: true }
 ])
 export class App {
-  angularclassLogo = 'assets/img/angularclass-avatar.png';
-  name = 'Angular 2 Webpack Starter';
-  url = 'https://twitter.com/AngularClass';
+  name = 'Todo application';
 
   constructor(public appState: AppState) {}
 
