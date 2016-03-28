@@ -1,0 +1,9 @@
+<ul>
+  <li *ngFor="var todo of todoService.cloneTodos(); var $index = index">
+    <p>
+      {{ todo.title }}
+      <br>
+      <small>{{ todo.createdAt }}</small>
+    </p>
+  </li>
+</ul>

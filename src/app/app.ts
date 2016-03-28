@@ -23,7 +23,7 @@ import {MdCard} from '@angular2-material/card';
   pipes: [ ],
   providers: [ ],
   directives: [MdToolbar, MdCard],
-  styles: [ ],
+  styles: [],
   template: `
     <md-toolbar color="primary">
       <span>{{name}}</span>

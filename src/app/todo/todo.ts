@@ -5,11 +5,12 @@ import {AppState} from '../app.service';
 import {TodoService} from './services/todo';
 
 import {AddTodo} from './components/add-todo';
+import {TodoList} from './components/todo-list';
 
 @Component({
     selector: 'todo',
     providers: [ TodoService ],
-    directives: [ AddTodo ],
+    directives: [ AddTodo, TodoList ],
     // We need to tell Angular's compiler which custom pipes are in our template.
     pipes: [ ],
     // Our list of styles in our component. We may add more to compose many styles together
