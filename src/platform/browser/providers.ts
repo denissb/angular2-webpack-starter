@@ -15,8 +15,7 @@ import {ROUTER_PROVIDERS, LocationStrategy, HashLocationStrategy} from 'angular2
 
 // Angular 2 Material
 // TODO(gdi2290): replace with @angular2-material/all
-import {MATERIAL_PROVIDERS} from './angular2-material2';
-
+import {MATERIAL_PROVIDERS} from "ng2-material/all";
 /*
 * Application Providers/Directives/Pipes
 * providers/directives/pipes that only live in our browser environment

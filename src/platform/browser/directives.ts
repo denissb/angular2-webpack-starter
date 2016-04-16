@@ -9,7 +9,8 @@ import {ROUTER_DIRECTIVES} from 'angular2/router';
 
 // Angular 2 Material 2
 // TODO(gdi2290): replace with @angular2-material/all
-import {MATERIAL_DIRECTIVES} from './angular2-material2';
+//Temporary replacing with ng-material
+import {MATERIAL_DIRECTIVES} from 'ng2-material/all';
 
 // application_directives: directives that are global through out the application
 export const APPLICATION_DIRECTIVES = [
