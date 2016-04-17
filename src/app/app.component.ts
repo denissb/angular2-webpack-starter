@@ -18,43 +18,18 @@ import {RouterActive} from './router-active';
   providers: [ ],
   directives: [ RouterActive ],
   encapsulation: ViewEncapsulation.None,
-  styles: [`
-    body {
-      margin: 0;
-    }
-    md-toolbar ul {
-      display: inline;
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-      width: 60px;
-    }
-    md-toolbar li {
-      display: inline;
-    }
-    md-toolbar li.active {
-      background-color: lightgray;
-    }
-  `],
   template: `
     <header>
-      <md-toolbar color="primary">
-        <span>{{ name }}</span>
-        <nav>
-          <ul>
-            <li router-active>
-              <a [routerLink]=" ['Index'] ">Index</a>
-            </li>
-            |
-            <li router-active>
-              <a [routerLink]=" ['Home'] ">Home</a>
-            </li>
-            |
-            <li router-active>
-              <a [routerLink]=" ['About'] ">About</a>
-            </li>
-          </ul>
-        </nav>
+       <md-toolbar>
+        <div class="md-toolbar-tools">
+          <h2>
+            <span>{{ name }}</span>
+          </h2>
+          <span flex></span>
+          <button md-raised-button aria-label="About" router-active [routerLink]=" ['About'] ">
+            About
+          </button>
+        </div>
       </md-toolbar>
     </header>
 
@@ -65,30 +40,24 @@ import {RouterActive} from './router-active';
     <pre>this.appState.state = {{ appState.state | json }}</pre>
 
     <footer>
-      WebPack Angular 2 Starter by <a [href]="url">@AngularClass</a>
-      <div>
-        <img [src]="angularclassLogo" width="10%">
-      </div>
+      WebPack Angular 2 Starter with ng2-material <a [href]="url">@Github</a>
     </footer>
   `
 })
 @RouteConfig([
   { path: '/',      name: 'Index', component: Home, useAsDefault: true },
-  { path: '/home',  name: 'Home',  component: Home },
   // Async load a component using Webpack's require with es6-promise-loader and webpack `require`
   { path: '/about', name: 'About', loader: () => require('es6-promise!./about')('About') }
 ])
 export class App {
-  angularclassLogo = 'assets/img/angularclass-avatar.png';
   name = 'Angular 2 Webpack Starter';
-  url = 'https://twitter.com/AngularClass';
+  url = 'https://github.com/spawnius/angular2-webpack-starter/tree/ng-material';
 
   constructor(public appState: AppState) {}
 
   ngOnInit() {
     console.log('Initial App State', this.appState.state);
   }
-
 }
 
 /*

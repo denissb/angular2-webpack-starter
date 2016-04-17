@@ -61,6 +61,7 @@ export class RouterActive {
   private _updateClass() {
     let active = this.routerLink.first.isRouteActive;
     this.renderer.setElementClass(this.element.nativeElement, this._attrOrProp(), active);
+    this.renderer.setElementProperty(this.element.nativeElement, 'disabled', active);
   }
 
   private _defaultAttrValue(attr?: string) {
